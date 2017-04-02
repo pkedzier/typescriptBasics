@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/moon.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title">
+				<h3><strong>Typescript</strong></h3>
+					<p>
+						<small>Created by <a href="https://github.com/pkedzier">Przemyslaw Kedzierski</a> / <a href="https://github.com/lsidorki">Lukasz Sidorkiewicz</a></small>
+					</p>
+			</section>
+
+
+			<section id="typescriptStart" data-markdown>
+				<h3>How to start?</h3>
+				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">npm install -g typescript
+					</code></pre>
+			</section>
+			<section id="hello">
+				<section>
+					<h3>Typescript</h3>
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">function printPerson(person) {
+	return "Hello, " + person;
+}
+
+var user = "John Rambo";
+console.log(printPerson(user));
+
+					</code></pre>
+				</section>
+				<section><pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">tsc test.ts
+node test.js
+					</code></pre></section>
+			</section>
+
+			<section id="typeAnnotation">
+				<section>
+					<h3>Type annotation</h3>
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">function printPerson(person: string) {
+return "Hello, " + person;
+}
+
+var user = "John Rambo";
+console.log(printPerson(user));</code></pre>
+				</section>
+				<section>
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">function printPerson(person: string) {
+return "Hello, " + person;
+}
+
+var user = 5;
+console.log(printPerson(user));</code></pre>
+<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">typeAnnotationTest.ts(6,25): error TS2345: Argument of type '5' is not assignabl
+e to parameter of type 'string'.</code></pre>
+					You can use TypeScript even if there are errors in your code. But in this case, TypeScript is warning that your code will likely not run as expected.
+				</section>
+			</section>
+			<section id="basic types">
+				<section>
+					<h3>Basic data types:</h3>
+					<ul>
+						<li>boolean</li>
+						<li>number</li>
+						<li>string</li>
+						<li>elemType[]</li>
+						<li>any</li>
+						<li>void</li>
+					</ul>
+				</section>
+				<section>
+					All numbers are floating point values
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+  let hex: number = 0xf00d;
+  let decimal: number = 8;
+  let octal: number = 0o744;
+  let binary: number = 0b1010;
+				</code></pre>
+				</section>
+				<section>
+					<h3>Arrays</h3>
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+let list: number[] = [10, 15, 20];
+				</code></pre>
+				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+let list: Array<number> = [1, 2, 3];
+			</code></pre>
+				</section>
+				<section>
+					<h3>Enum</h3>
+
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+ //By defeaults it starts from value 0
+ enum Status {Finished, Closed, Opened};
+ let c: Status = Status.Closed;
+
+ //but you can define it
+ enum Day {Montag =5, Dienstag};
+
+ //or even
+ enum Month {Jan = 7, Feb = 3, Mar = 1}
+				</code></pre>
+				</section>
+				<section>
+					<h3>void</h3>
+					is used as the return type of the functions that don't return a value.
+
+					To variable declared as void yo can assign only undefined and null.
+				</section>
+			</section>
+
+			<section id="interface">
+				<h3>Interfaces</h3>
+				In TypeScript, two types are compatible if their internal structure is compatible.
+				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">interface Student {
+    id: string;
+    age: number;
+}
+
+function greeter(student: Student) {
+    return "Student: " + student.id + " age: " + student.age;
+}
+					</code></pre>
+			</section>
+			<section id="classes">
+				<section id="classes-basics">
+				<h3>Classes</h3>
+				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">class Employee {
+   id: number;
+   salary: number;
+
+   constructor(id: number, salary: number) {
+      this.id = id;
+      this.salary = salary;
+   }
+}
+					</code></pre>
+				</section>
+				<section id="classes-constructor">
+					Public on arguments creates properties with that name.
+
+					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">class Employee {
+   id: number;
+   salary: number;
+
+   constructor(public id: number, salary: number) {
+      this.id = id;
+      this.salary = salary;
+   }
+}
+						</code></pre>
+
+						publicArguments.ts(5,23): error TS2300: Duplicate identifier 'id'.
+					</section>
+					<section id="classes-inheritance">
+						<h3>Inheritance</h3>
+						<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">class ITGuy extends Employee {
+   mainLanguage: string;
+
+   constructor(id: number, salary: number, mainLanguage: string) {
+      super(id, salary);
+      this.mainLanguage = mainLanguage;
+    }
+}
+					</pre></code>
+					</section>
+			</section>
+			<section ="iterators">
+				<h3>for loop</h3>
+				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+let myList : number = {8, 7, 9};
+
+for (let num in myList){
+	console.log(num); //0,1,2
+}
+for(let num of myList){
+	console.log(num); //8,7,9
+}
+				</code></pre>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
