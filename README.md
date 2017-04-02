@@ -1,3 +1,3 @@
 # typescriptBasics
 
-Starter Kit Typescipt lecture
+Starter Kit Typescript lecture
