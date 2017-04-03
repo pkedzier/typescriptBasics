@@ -36,13 +36,13 @@
 
 			<section id="typescriptStart" data-markdown>
 				<h3>How to start?</h3>
-				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">npm install -g typescript
+				<pre><code class="" data-trim contenteditable style="font-size: 18px;">npm install -g typescript
 					</code></pre>
 			</section>
 			<section id="hello">
 				<section>
 					<h3>Typescript</h3>
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">function printPerson(person) {
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">function printPerson(person) {
 	return "Hello, " + person;
 }
 
@@ -51,7 +51,7 @@ console.log(printPerson(user));
 
 					</code></pre>
 				</section>
-				<section><pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">tsc test.ts
+				<section><pre><code class="" data-trim contenteditable style="font-size: 18px;">tsc test.ts
 node test.js
 					</code></pre></section>
 			</section>
@@ -59,7 +59,7 @@ node test.js
 			<section id="typeAnnotation">
 				<section>
 					<h3>Type annotation</h3>
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">function printPerson(person: string) {
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">function printPerson(person: string) {
 return "Hello, " + person;
 }
 
@@ -67,13 +67,13 @@ var user = "John Rambo";
 console.log(printPerson(user));</code></pre>
 				</section>
 				<section>
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">function printPerson(person: string) {
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">function printPerson(person: string) {
 return "Hello, " + person;
 }
 
 var user = 5;
 console.log(printPerson(user));</code></pre>
-<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">typeAnnotationTest.ts(6,25): error TS2345: Argument of type '5' is not assignabl
+<pre><code class="" data-trim contenteditable style="font-size: 18px;">typeAnnotationTest.ts(6,25): error TS2345: Argument of type '5' is not assignabl
 e to parameter of type 'string'.</code></pre>
 					You can use TypeScript even if there are errors in your code. But in this case, TypeScript is warning that your code will likely not run as expected.
 				</section>
@@ -92,7 +92,7 @@ e to parameter of type 'string'.</code></pre>
 				</section>
 				<section>
 					All numbers are floating point values
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">
   let hex: number = 0xf00d;
   let decimal: number = 8;
   let octal: number = 0o744;
@@ -101,17 +101,17 @@ e to parameter of type 'string'.</code></pre>
 				</section>
 				<section>
 					<h3>Arrays</h3>
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">
 let list: number[] = [10, 15, 20];
 				</code></pre>
-				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+				<pre><code class="" data-trim contenteditable style="font-size: 18px;">
 let list: Array<number> = [1, 2, 3];
 			</code></pre>
 				</section>
 				<section>
 					<h3>Enum</h3>
 
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">
  //By defeaults it starts from value 0
  enum Status {Finished, Closed, Opened};
  let c: Status = Status.Closed;
@@ -134,7 +134,7 @@ let list: Array<number> = [1, 2, 3];
 			<section id="interface">
 				<h3>Interfaces</h3>
 				In TypeScript, two types are compatible if their internal structure is compatible.
-				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">interface Student {
+				<pre><code class="" data-trim contenteditable style="font-size: 18px;">interface Student {
     id: string;
     age: number;
 }
@@ -147,7 +147,7 @@ function greeter(student: Student) {
 			<section id="classes">
 				<section id="classes-basics">
 				<h3>Classes</h3>
-				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">class Employee {
+				<pre><code class="" data-trim contenteditable style="font-size: 18px;">class Employee {
    id: number;
    salary: number;
 
@@ -161,7 +161,7 @@ function greeter(student: Student) {
 				<section id="classes-constructor">
 					Public on arguments creates properties with that name.
 
-					<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">class Employee {
+					<pre><code class="" data-trim contenteditable style="font-size: 18px;">class Employee {
    id: number;
    salary: number;
 
@@ -176,7 +176,7 @@ function greeter(student: Student) {
 					</section>
 					<section id="classes-inheritance">
 						<h3>Inheritance</h3>
-						<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">class ITGuy extends Employee {
+						<pre><code class="" data-trim contenteditable style="font-size: 18px;">class ITGuy extends Employee {
    mainLanguage: string;
 
    constructor(id: number, salary: number, mainLanguage: string) {
@@ -189,7 +189,7 @@ function greeter(student: Student) {
 			</section>
 			<section ="iterators">
 				<h3>for loop</h3>
-				<pre><code class="hljs" data-trim contenteditable style="font-size: 18px;">
+				<pre><code class="" data-trim contenteditable style="font-size: 18px;">
 let myList : number = {8, 7, 9};
 
 for (let num in myList){
@@ -212,24 +212,7 @@ for(let num of myList){
 			history: true,
 
 			// More info https://github.com/hakimel/reveal.js#dependencies
-			dependencies: [{
-					src: 'plugin/markdown/marked.js'
-				},
-				{
-					src: 'plugin/markdown/markdown.js'
-				},
-				{
-					src: 'plugin/notes/notes.js',
-					async: true
-				},
-				{
-					src: 'plugin/highlight/highlight.js',
-					async: true,
-					callback: function() {
-						hljs.initHighlightingOnLoad();
-					}
-				}
-			]
+			dependencies: []
 		});
 	</script>
 </body>
